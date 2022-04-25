@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>pagina principal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300;700&family=Montserrat:wght@100;400;700&family=Rubik:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            outline: none;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Akshar', sans-serif;
+        }
+        input[type=text]{
+            border: none;
+            background-color: white;
+            border-radius: 3px;
+            height: 21px;
+            width: 300px;
+            padding-left: 5px;
+            margin-bottom: 5px;
+        }
+        main{
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #cae5ff;
+            row-gap: 50px;
+        }
+        .deleteButton,
+        .updateButton,
+        .saveButton,
+        .seeDataButton{
+            padding: 3px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+        }
+        .deleteButton{
+            background-color: red;
+        }
+        .updateButton,
+        .saveButton{
+            background-color: #89BBFE;
+        }
+        .seeDataButton{
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            background-color: #6F8AB7;
+        }
+        #updateform,
+        #postform{
+            display: flex;
+            flex-direction: column
+        }
+        .buttonGroup{
+            display:flex;
+            column-gap: 10px;
+        }
+        label{
+            font-family: 'Akshar', sans-serif;
+        }
+        h2{
+            font-family: 'Akshar', sans-serif;
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <section id="insert">
+        <h2>Inserir dados</h2>
+    <form  id="postform" method="post" enctype="multipart/form-data">
+        <label for="full_name">Nome Completo: </label>
+        <input type="text" id="full_name" name="full_name" value="" placeholder="fulano de lima"/>
+        <label for="country">Pais: </label>
+        <input type="text" id="country" name="country" value="" placeholder="Brasil"/>
+        <div class="buttonGroup">
+            <input type="submit" class="saveButton" value="Salvar" formaction="/success">
+            <a href="/show_records" class="seeDataButton">Ver dados Cadastrados</a>
+        </div>
+
+    </form>
+
+    </section>
+
+    <section id="update">
+        <h2>Excluir/alterar dados</h2>
+        <form id="updateform" method="post" enctype="multipart/form-data">
+            <label for="item_id">ID (suficiente para deletar o dado): </label>
+            <input type="text" id="item_id" name="item_id" value="" placeholder="ID"/>
+            <label for="full_name_update">Nome Completo: </label>
+            <input type="text" id="full_name_update" name="full_name_update" value="" placeholder="Nome"/>
+            <label for="country">Pais: </label>
+            <input type="text" id="country_update" name="country_update" value="" placeholder="Pais"/>
+            <div class="buttonGroup">
+                <input type="submit" class="updateButton" value="Atualizar" formaction="/update">
+                <input type="submit" class="deleteButton" value="Deletar" formaction="/delete">
+            </div>
+         </form>
+    </section>
+    </main>
+
+</body>
+</html>
